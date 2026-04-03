@@ -1,0 +1,17 @@
+name = "kair-os-rust"
+main = "build/worker/shim.mjs"
+compatibility_date = "2024-11-01"
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
+
+[[durable_objects.bindings]]
+name = "KAIROS_TASK"
+class_name = "KairosTask"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["KairosTask"]
+
+[triggers]
+crons = ["* * * * *"]
