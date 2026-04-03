@@ -1,4 +1,4 @@
-name = "kair-os-rust"
+name = "kair-os"
 main = "build/worker/shim.mjs"
 compatibility_date = "2024-11-01"
 
@@ -13,5 +13,5 @@ class_name = "KairosTask"
 tag = "v1"
 new_sqlite_classes = ["KairosTask"]
 
-[triggers]
-crons = ["* * * * *"]
+# NO cron triggers — KAIR.OS is self-scheduling via DO Alarms
+# Optionally add heartbeat: [triggers] crons = ["* * * * *"]
